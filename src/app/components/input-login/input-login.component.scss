@@ -1,0 +1,22 @@
+  input {
+  width: 40rem;
+  height: 5rem;
+  border: none;
+  display: block;
+  margin: 0.1rem 0rem;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+
+  &::placeholder {
+    font-size: 1.4rem;
+  }
+
+  &:focus {
+    outline: 1px solid #ffd890;
+
+    &::placeholder {
+      padding-left: 0.4rem;
+    }
+  }
+
+}
