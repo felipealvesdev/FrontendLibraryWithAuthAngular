@@ -1,5 +1,32 @@
+:host {
+  width: 100%;
+}
+
 .containerNavbar {
   height: 7rem;
   width: 100%;
-  background-color: #bbb;
+  font-size: 3rem;
+  background-color: #ffd35c;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  & .currentDate {
+    padding: 1rem 2rem;
+    background-color: #ffde85;
+    border-radius: 0.5rem;
+  }
+
+  & .exitButton {
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: cornflowerblue;
+    color: #fff;
+
+    &:hover {
+      background-color: rgb(236, 108, 58);
+    }
+  }
 }
