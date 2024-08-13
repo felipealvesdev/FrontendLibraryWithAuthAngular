@@ -10,4 +10,22 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  loginValue: string = '';
+  passwordValue: string = '';
+  resetInputs: boolean = false;
+
+  onLoginValueChange(value: string) {
+    this.loginValue = value;
+  }
+
+  onPasswordValueChange(value: string) {
+    this.passwordValue = value;
+  }
+
+  onSubmit() {
+    console.log(`Login: ${this.loginValue}`);
+    console.log(`Password ${this.passwordValue}`);
+    this.resetInputs = true;
+    setTimeout(() => this.resetInputs = false, 0);
+  }
 }

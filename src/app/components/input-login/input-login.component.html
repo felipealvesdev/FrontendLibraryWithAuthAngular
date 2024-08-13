@@ -1,1 +1,7 @@
-<input type="text" [placeholder]="placeHolder">
+<input
+  #inputField
+  [type]="inputType"
+  [placeholder]="placeHolder"
+  (input)="onInputChange($event)"
+  [value]=""
+>

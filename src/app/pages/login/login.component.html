@@ -2,9 +2,21 @@
   <div class="containerLogin">
     <h1 class="loginTitle">Seja bem-vindo(a)</h1>
     <div class="containerInputs">
-      <app-input-login placeHolder="Digite aqui seu login"></app-input-login>
-      <app-input-login placeHolder="Digite aqui sua senha"></app-input-login>
-      <button class="loginButton">Entrar</button>
+      <app-input-login
+        inputType="text"
+        placeHolder="Digite aqui seu login"
+        (valueChange)="onLoginValueChange($event)"
+        [reset]="resetInputs"
+        >
+      </app-input-login>
+      <app-input-login
+        inputType="password"
+        placeHolder="Digite aqui sua senha"
+        (valueChange)="onPasswordValueChange($event)"
+        [reset]="resetInputs"
+        >
+      </app-input-login>
+      <button class="loginButton" (click)="onSubmit()">Entrar</button>
     </div>
     <div class="containerOptions">
       <p>Esqueceu sua senha? <a href="#">Clique aqui</a></p>

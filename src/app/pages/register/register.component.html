@@ -2,8 +2,17 @@
   <div class="containerLogin">
     <h1 class="loginTitle">Seja bem-vindo(a)</h1>
     <div class="containerInputs">
-      <app-input-login placeHolder="Digite aqui seu login para cadastro"></app-input-login>
-      <app-input-login placeHolder="Digite aqui sua senha para cadastro"></app-input-login>
+      <app-input-login
+          inputType="text"
+          placeHolder="Digite aqui seu login"
+          (valueChange)="onLoginValueChange($event)">
+        >
+      </app-input-login>
+      <app-input-login
+        inputType="password"
+        placeHolder="Digite aqui sua senha"
+        (valueChange)="onPasswordValueChange($event)"
+      ></app-input-login>
       <button class="loginButton">Cadastar-me</button>
     </div>
     <div class="containerOptions">

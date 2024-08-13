@@ -10,4 +10,20 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
+
+  loginValue: string = '';
+  passwordValue: string = '';
+
+  onLoginValueChange(value: string) {
+    this.loginValue = value;
+  }
+
+  onPasswordValueChange(value: string) {
+    this.passwordValue = value;
+  }
+
+  onSubmit() {
+    console.log(`Login: ${this.loginValue}`);
+    console.log(`Password ${this.passwordValue}`)
+  }
 }
