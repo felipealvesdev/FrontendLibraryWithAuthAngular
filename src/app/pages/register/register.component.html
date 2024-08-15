@@ -13,7 +13,12 @@
         placeHolder="Digite aqui sua senha"
         (valueChange)="onPasswordValueChange($event)"
       ></app-input-login>
-      <button class="loginButton">Cadastar-me</button>
+      <app-input-login
+        inputType="text"
+        placeHolder="Digite aqui o tipo de acesso ( ADMIN / USER)"
+        (valueChange)="onUserTypeValueChange($event)"
+      ></app-input-login>
+      <button class="loginButton" (click)="onSubmit()">Cadastar-me</button>
     </div>
     <div class="containerOptions">
       <p>Possui uma conta? <a routerLink="/login">Clique para voltar a tela de login</a></p>
