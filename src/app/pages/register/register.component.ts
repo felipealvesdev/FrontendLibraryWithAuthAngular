@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { InputLoginComponent } from "../../components/input-login/input-login.component";
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -42,7 +43,7 @@ export class RegisterComponent {
       role: this.userTypeValue,
     };
 
-    this.http.post('http://localhost:8080/auth/register', loginData)
+    this.http.post(`${environment.apiUrl}/auth/register`, loginData)
       .subscribe(
         response => {
           console.log("Registro bem-sucedido: (backend retorna 200 e body null)", response);

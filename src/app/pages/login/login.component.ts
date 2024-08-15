@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { InputLoginComponent } from "../../components/input-login/input-login.component";
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +35,7 @@ export class LoginComponent {
       password: this.passwordValue,
     };
 
-    this.http.post('http://localhost:8080/auth/login', loginData)
+    this.http.post(`${environment.apiUrl}/auth/login`, loginData)
       .subscribe(
         response => {
           console.log("Login bem-sucedido: ", response);
