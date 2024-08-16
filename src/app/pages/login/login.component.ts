@@ -3,6 +3,7 @@ import { InputLoginComponent } from "../../components/input-login/input-login.co
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { loginBodyRequest } from '../../models/library.model';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,7 @@ export class LoginComponent {
     console.log(`Login: ${this.loginValue}`);
     console.log(`Password ${this.passwordValue}`);
 
-    const loginData = {
+    const loginData: loginBodyRequest = {
       login: this.loginValue,
       password: this.passwordValue,
     };
