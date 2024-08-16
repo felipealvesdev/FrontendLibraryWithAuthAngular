@@ -5,18 +5,20 @@
       <app-input-login
           inputType="text"
           placeHolder="Digite aqui seu login"
-          (valueChange)="onLoginValueChange($event)">
-        >
-      </app-input-login>
+          (valueChange)="onLoginValueChange($event)"
+          [reset]="resetInputs"
+        ></app-input-login>
       <app-input-login
         inputType="password"
         placeHolder="Digite aqui sua senha"
         (valueChange)="onPasswordValueChange($event)"
+        [reset]="resetInputs"
       ></app-input-login>
       <app-input-login
         inputType="text"
         placeHolder="Digite aqui o tipo de acesso ( ADMIN / USER)"
         (valueChange)="onUserTypeValueChange($event)"
+        [reset]="resetInputs"
       ></app-input-login>
       <button class="loginButton" (click)="onSubmit()">Cadastar-me</button>
     </div>

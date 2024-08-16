@@ -3,6 +3,7 @@ import { InputLoginComponent } from "../../components/input-login/input-login.co
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { loginBodyRequest, registerBodyRequest, userRoleType } from '../../models/library.model';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ import { environment } from '../../../environments/environment';
 export class RegisterComponent {
   loginValue: string = '';
   passwordValue: string = '';
-  userTypeValue: string = "ADMIN" || "USER";
+  userTypeValue: userRoleType = "USER";
   resetInputs: boolean = false;
 
 
@@ -29,7 +30,10 @@ export class RegisterComponent {
   }
 
   onUserTypeValueChange(value: string) {
-    this.userTypeValue = value.toUpperCase();
+    const upperValue = value.toLocaleUpperCase();
+    if(upperValue === 'ADMIN' || upperValue === 'USER') {
+      this.userTypeValue = upperValue as userRoleType;
+    }
   }
 
   onSubmit() {
@@ -37,13 +41,13 @@ export class RegisterComponent {
     console.log(`Password: ${this.passwordValue}`)
     console.log(`Role: ${this.userTypeValue}`)
 
-    const loginData = {
+    const registerData: registerBodyRequest = {
       login: this.loginValue,
-      password: this.passwordValue,
-      role: this.userTypeValue,
+      password:this.passwordValue,
+      role: this.userTypeValue
     };
 
-    this.http.post(`${environment.apiUrl}/auth/register`, loginData)
+    this.http.post(`${environment.apiUrl}/auth/register`, registerData)
       .subscribe(
         response => {
           console.log("Registro bem-sucedido: (backend retorna 200 e body null)", response);
