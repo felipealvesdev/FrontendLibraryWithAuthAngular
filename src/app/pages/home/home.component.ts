@@ -1,4 +1,4 @@
-import { LibraryDataService } from './../../library-data.service';
+import { LibraryDataService } from '../../services/library-data/library-data.service';
 import { Component } from '@angular/core';
 import { NavbarComponent } from "../../components/navbar/navbar.component";
 import { CardItemMenuComponent } from "../../components/card-item-menu/card-item-menu.component";
