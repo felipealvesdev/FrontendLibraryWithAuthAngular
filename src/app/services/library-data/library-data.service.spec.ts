@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LibraryDataService } from './services/library-data/library-data.service';
+import { LibraryDataService } from './library-data.service';
 
 describe('LibraryDataService', () => {
   let service: LibraryDataService;
