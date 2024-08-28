@@ -2,11 +2,12 @@ import { LibraryDataService } from '../../services/library-data/library-data.ser
 import { Component } from '@angular/core';
 import { NavbarComponent } from "../../components/navbar/navbar.component";
 import { CardItemMenuComponent } from "../../components/card-item-menu/card-item-menu.component";
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, CardItemMenuComponent],
+  imports: [NavbarComponent, CardItemMenuComponent, HttpClientModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -15,7 +16,10 @@ export class HomeComponent {
   books:any[] = [];
   error: string | null = null;
 
-  constructor(private LibraryDataService: LibraryDataService) {}
+  constructor(
+    private LibraryDataService: LibraryDataService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.loadBooks();
