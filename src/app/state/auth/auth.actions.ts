@@ -10,4 +10,6 @@ export const loginFailure = createAction(
   props<{ error: any }>()
 );
 
+export const noOp = createAction('[Auth] No Operation');
+
 export const logout = createAction('[Auth] Logout');

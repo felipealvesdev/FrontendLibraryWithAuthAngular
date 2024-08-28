@@ -4,6 +4,10 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { loginBodyRequest } from '../../models/library.model';
+import { Store } from '@ngrx/store';
+import { AuthState } from '../../state/auth/auth.reducer';
+import { loginFailure, loginSuccess } from '../../state/auth/auth.actions';
+import { LoginResponse } from '../../models/login-response.model';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +21,7 @@ export class LoginComponent {
   passwordValue: string = '';
   resetInputs: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store: Store<AuthState>) {}
 
   onLoginValueChange(value: string) {
     this.loginValue = value;
@@ -36,13 +40,15 @@ export class LoginComponent {
       password: this.passwordValue,
     };
 
-    this.http.post(`${environment.apiUrl}/auth/login`, loginData)
+    this.http.post<LoginResponse>(`${environment.apiUrl}/auth/login`, loginData)
       .subscribe(
         response => {
           console.log("Login bem-sucedido: ", response);
+          this.store.dispatch(loginSuccess({token: response.token }));
         },
         error => {
           console.log("Erro ao fazer login: ", error);
+          this.store.dispatch(loginFailure({ error }))
         }
       );
 
