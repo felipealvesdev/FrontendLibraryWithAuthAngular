@@ -27,7 +27,7 @@ export class HomeComponent {
   ) {}
 
   ngOnInit(): void {
-    this.loadBooks();
+    this.loadBooks(); // books arent being requested in the service yet.
     this.store.select(selectToken).subscribe(state => {
       console.log(`O valor do token é: ${state}`)
       // token is being stored in the selector
