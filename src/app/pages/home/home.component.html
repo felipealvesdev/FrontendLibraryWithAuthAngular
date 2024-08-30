@@ -1,16 +1,10 @@
 <div class="containerGlobal">
 
-  <div class="containerInfo">
-    <app-card-item-menu></app-card-item-menu>
-    <app-card-item-menu></app-card-item-menu>
-
-    <app-card-item-menu></app-card-item-menu>
-
-    <app-card-item-menu></app-card-item-menu>
-
-    <app-card-item-menu></app-card-item-menu>
-
-    <app-card-item-menu></app-card-item-menu>
+  <div class="containerInfo" *ngFor="let item of books">
+    <app-card-item-menu
+      [id] = "item.id"
+      [title] = "item.title">
+    </app-card-item-menu>
   </div>
 
 </div>

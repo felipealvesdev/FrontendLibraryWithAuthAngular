@@ -7,11 +7,12 @@ import { CardItemMenuComponent } from "../../components/card-item-menu/card-item
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { AuthState } from '../../state/auth/auth.reducer';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, CardItemMenuComponent, HttpClientModule],
+  imports: [NavbarComponent, CardItemMenuComponent, HttpClientModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -30,7 +31,6 @@ export class HomeComponent {
     this.loadBooks(); // books arent being requested in the service yet.
     this.store.select(selectToken).subscribe(state => {
       console.log(`O valor do token é: ${state}`)
-      // token is being stored in the selector
     })
   }
 

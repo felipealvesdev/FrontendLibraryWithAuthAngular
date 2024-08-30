@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 
 @Component({
   selector: 'app-card-item-menu',
@@ -9,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class CardItemMenuComponent {
 
+  @Input({required: true}) title = "";
+  @Input({required: true}) id = "";
 }
