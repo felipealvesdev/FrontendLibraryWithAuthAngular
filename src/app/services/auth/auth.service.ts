@@ -5,6 +5,8 @@ import { environment } from '../../../environments/environment';
 import { select, Store } from '@ngrx/store';
 import { AuthState } from '../../state/auth/auth.reducer';
 import { selectToken } from '../../state/auth/auth.selectors';
+import { logout } from '../../state/auth/auth.actions';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +15,8 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private store: Store<AuthState>
+    private store: Store<AuthState>,
+    private router: Router
   ) {}
 
   login(loginData: any): Observable<{ token: string }> {
@@ -27,5 +30,9 @@ export class AuthService {
     )
   }
 
-  // Adicione outros métodos relacionados à autenticação aqui
+  logout(): void {
+    this.store.dispatch(logout());
+    console.log("Disparou logout")
+    this.router.navigate(['/login']);
+  }
 }
