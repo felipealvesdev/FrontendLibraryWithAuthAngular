@@ -8,6 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { AuthState } from '../../state/auth/auth.reducer';
 import { CommonModule } from '@angular/common';
+import { bookModel } from '../../models/library.model';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent {
 
-  books:any[] = [];
+  books:bookModel[] = [];
   error: string | null = null;
 
   constructor(
@@ -28,7 +29,7 @@ export class HomeComponent {
   ) {}
 
   ngOnInit(): void {
-    this.loadBooks(); // books arent being requested in the service yet.
+    this.loadBooks();
     this.store.select(selectToken).subscribe(state => {
       console.log(`O valor do token é: ${state}`)
     })
