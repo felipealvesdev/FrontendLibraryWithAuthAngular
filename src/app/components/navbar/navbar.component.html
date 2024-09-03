@@ -1,5 +1,7 @@
 <nav class="containerNavbar">
-  <div class="currentDate">Data: 10/08/2024</div>
+  <div class="currentDate">
+    Data: {{getDate().getDate()}}/ {{getDate().getMonth()}}/ {{getDate().getFullYear()}}
+  </div>
   <div>
     <button class="exitButton" (click)="logout()">Sair</button>
   </div>

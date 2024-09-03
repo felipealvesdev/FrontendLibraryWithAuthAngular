@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CardBooksDetailComponent } from "../../components/card-books-detail/card-books-detail.component";
 
 @Component({
   selector: 'app-books-detail',
   standalone: true,
-  imports: [],
+  imports: [CardBooksDetailComponent],
   templateUrl: './books-detail.component.html',
   styleUrl: './books-detail.component.scss'
 })
